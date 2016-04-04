@@ -10,9 +10,9 @@ $(function () {
 
 
     //添加
-    $("#btnImport").click(function () {
-        showTestDataImport();
-    });
+    //$("#btnImport").click(function () {
+    //    showTestDataImport();
+    //});
 
 
     //上传图片
@@ -53,7 +53,7 @@ $(function () {
 
     // 上传成功之后，重新加载table
     $('#uploadModal').on('hidden.bs.modal', function (e) {
-
+        //tbl.ajax.reload();
     });
 
 });
