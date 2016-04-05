@@ -53,6 +53,7 @@ $(function () {
 
     // 上传成功之后，重新加载table
     $('#uploadModal').on('hidden.bs.modal', function (e) {
+        //alert("上传成功");
         //tbl.ajax.reload();
     });
 
