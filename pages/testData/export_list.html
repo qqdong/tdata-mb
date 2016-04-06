@@ -2,7 +2,7 @@
 <html>
 <head lang="cn">
     <meta charset="UTF-8">
-    <title>亚麻海淘运营后台-Banner管理</title>
+    <title>测试数据管理后台-Banner管理</title>
     <meta
             content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
             name='viewport'>
@@ -47,7 +47,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="../../index.html" class="logo"><b>亚麻海淘运营后台</b></a>
+        <a href="../../index.html" class="logo"><b>测试数据管理后台</b></a>
 
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -118,46 +118,21 @@
                 <!-- Optionally, you can add icons to the links -->
                 <li id="menuWelcome" class="leftMenu"><a
                         href="../../index.html"><span>欢迎使用</span></a></li>
-                <li class="treeview" id="menuCenter"><a href="#"><i class="fa  fa-smile-o"></i><span>个人中心</span>
+                <li class="treeview" id="menuTestData"><a href="#"><i
+                        class="fa  fa-book"></i><span>数据管理</span>
                     <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li id="menuCenter_info"><a
-                                href="#"><i
-                                class="fa fa-circle-o"></i>个人信息</a></li>
-                    </ul>
-                </li>
-                <li class="treeview" id="menuProduct"><a href="#"><i
-                        class="fa  fa-book"></i><span>商品管理</span>
-                    <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li id="menuProduct_list"><a
-                                href="../product/list.html"><i
-                                class="fa fa-circle-o"></i>商品列表</a></li>
-                        <li id="menuProduct_catalogList"><a
-                                href="../product/catalog_list.html"><i
-                                class="fa fa-circle-o"></i>分类列表</a></li>
-                    </ul>
-                </li>
-                <li class="treeview" id="menuBanner"><a href="#"><i
-                        class="fa  fa-tree"></i><span>Banner管理</span>
-                    <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li id="menuBanner_list"><a
-                                href="../banner/list.html"><i
-                                class="fa fa-circle-o"></i>Banner列表</a></li>
-                    </ul>
-                </li>
-                <li class="treeview" id="menuUser"><a href="#"><i
-                        class="fa  fa-user"></i><span>用户管理</span>
-                    <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li id="menuUser_list"><a
-                                href="../user/list.html"><i
-                                class="fa fa-circle-o"></i>用户列表</a></li>
+                        <li id="menuTestData_importList"><a
+                                href="../testData/import_list.html"><i
+                                class="fa fa-circle-o"></i>数据导入</a></li>
+                        <li id="menuTestDate_dayExportList"><a
+                                href="../testData/export_list.html"><i
+                                class="fa fa-circle-o"></i>每日导出</a></li>
                     </ul>
                 </li>
             </ul>
             <!-- /.sidebar-menu -->
+
         </section>
         <!-- /.sidebar -->
     </aside>
@@ -167,39 +142,19 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Banner管理
-                <small>Banner列表</small>
+                数据管理
+                <small>每日导出列表</small>
             </h1>
         </section>
         <section class="content"> <!-- Default box -->
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box box-primary">
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    <button class="btn btn-block btn-primary btn-flat"
-                                            id="btnAdd">添加
-                                    </button>
-                                </div>
-                                <div class="col-xs-2">
-                                    <button class="btn btn-block btn-primary btn-flat"
-                                            id="btnSavePriority">保存优先级
-                                    </button>
-                                </div>
-                                <div class="col-xs-2">
-                                    <span style="color: red">(*优先级值越小越靠前)</span>
-                                </div>
-                            </div>
-                        </div>
                         <table id="tbl1" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>标题</th>
-                                <th>头图</th>
-                                <th>跳转路径</th>
-                                <th>优先级</th>
-                                <th>状态</th>
+                                <th>编号</th>
+                                <th>日期</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -214,82 +169,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!--添加、编辑Banner-->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
-     aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="addModalLabel"></h4>
-            </div>
-            <form id="addForm">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input
-                                type="hidden" class="form-control" name="banner_id" id="bannerId">
-                        <label
-                                class="control-label">标题:</label>
-                        <input
-                                type="text" class="form-control" name="title" id="bannerTitle"
-                                placeholder="请填写标题">
-
-                        <label
-                                class="control-label">跳转路径:</label>
-                        <input
-                                type="text" class="form-control" name="page_url" id="bannerPageUrl"
-                                placeholder="请填写调转页面路径">
-
-                        <label
-                                class="control-label">头图:</label>
-                        <input
-                                type="text" class="form-control" name="head_img" id="bannerHeadImg"
-                                placeholder="请选择头图">
-                        <br/>
-                        <button class="btn btn-success btn-flat"
-                                id="btnUploadPic">选择图片
-                        </button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="btnEditSubmit">确定</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!--上传图片-->
-<div class="modal fade" id="uploadModal" tabindex="-2" role="dialog"
-     aria-labelledby="uploadModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="uploadModalLabel"></h4>
-            </div>
-            <form id="uploadForm">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input
-                                type="file" name="file" id="fileUpload"/>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btnUpload">上传</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <!-- REQUIRED JS SCRIPTS -->
 <!-- jQuery 2.1.3 -->
@@ -320,12 +199,7 @@
 <script src="../../plugins/jquery.json-2.3.min.js"></script>
 <!--app-->
 <script src='../../js/base.js'></script>
-<script src="../../js/banner/list.js"></script>
-
-<link href="../../plugins/uploadify/uploadify.css" rel="stylesheet"
-      type="text/css"/>
-<script src="../../plugins/uploadify/jquery.uploadify.js"></script>
-
+<script src="../../js/testData/export_list.js"></script>
 
 </body>
 </html>
